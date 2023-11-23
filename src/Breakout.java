@@ -39,20 +39,20 @@ public class Breakout extends GraphicsProgram {
 	private static final int NBRICK_ROWS = 10;
 
 /** Separation between bricks */
-	private static final int BRICK_SEP = 4;
+	public static final int BRICK_SEP = 4;
 
 /** Width of a brick */
 	private static final int BRICK_WIDTH =
 	  (WIDTH - (NBRICKS_PER_ROW - 1) * BRICK_SEP) / NBRICKS_PER_ROW;
 
 /** Height of a brick */
-	private static final int BRICK_HEIGHT = 8;
+	public static final int BRICK_HEIGHT = 8;
 
 /** Radius of the ball in pixels */
 	private static final int BALL_RADIUS = 10;
 
 /** Offset of the top brick row from the top */
-	private static final int BRICK_Y_OFFSET = 70;
+	public static final int BRICK_Y_OFFSET = 70;
 
 /** Number of turns */
 	private static final int NTURNS = 3;
@@ -60,9 +60,20 @@ public class Breakout extends GraphicsProgram {
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
+
+		for(int i = 0; i<NBRICK_ROWS; i++) {
+			row++;
+			for (int j = 0; j < NBRICKS_PER_ROW; j++) {
+
+				Brick brick = new Brick((BRICK_WIDTH + BRICK_SEP) * j, BRICK_Y_OFFSET+i*(BRICK_HEIGHT+BRICK_SEP), BRICK_WIDTH, BRICK_HEIGHT);
+
+				add(brick);
+			}
+		}
 		while(true) {
 			
 		}
 	}
+	protected static int row = 0;
 
 }
