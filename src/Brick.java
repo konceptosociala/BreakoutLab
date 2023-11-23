@@ -6,7 +6,7 @@ import acm.graphics.GRect;
 import java.awt.*;
 
 public class Brick extends GRect {
-
+private static int brickCounter = 0;
 	public Brick(double x, double y, double width, double height) {
 		super(x, y, width, height);
 
@@ -27,8 +27,17 @@ public class Brick extends GRect {
 			super.setColor(Color.CYAN);
 		}
 		super.setFilled(true);
-
+                brickCounter++;
 		}
+	private void deleteBrick(){
+		brickCounter--;
+		if(brickCounter<=0){
+			gameIsOver = true;
+		}
+		}
+
+	//Move somewhere else. Game is over if brickCounter == 0.
+		private boolean gameIsOver;
 
 
 	}
