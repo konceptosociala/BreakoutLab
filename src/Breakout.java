@@ -18,8 +18,8 @@ import java.awt.event.*;
 public class Breakout extends GraphicsProgram {
 	private static final long serialVersionUID = -6216973682616055961L;
 /** Width and height of application window in pixels */
-	public static final int APPLICATION_WIDTH = 400;
-	public static final int APPLICATION_HEIGHT = 600;
+	public static final int APPLICATION_WIDTH = 500;
+	public static final int APPLICATION_HEIGHT = 700;
 
 /** Dimensions of game board (usually the same) */
 	private static final int WIDTH = APPLICATION_WIDTH;
@@ -56,11 +56,14 @@ public class Breakout extends GraphicsProgram {
 
 /** Number of turns */
 	private static final int NTURNS = 3;
-
+	Paddle paddle = new Paddle(100,100, PADDLE_WIDTH, PADDLE_HEIGHT);
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
+		add(paddle);
 
+		addMouseListeners();
+		addKeyListeners();
 		for(int i = 0; i<NBRICK_ROWS; i++) {
 			row++;
 			for (int j = 0; j < NBRICKS_PER_ROW; j++) {
@@ -71,8 +74,16 @@ public class Breakout extends GraphicsProgram {
 			}
 		}
 		while(true) {
-			
+			paddle.move();
+			pause(2);
 		}
+	}
+
+	public void mouseMoved(MouseEvent e)
+	{
+		Paddle.MouseX = e.getX();
+		System.out.println(Paddle.MouseX);
+		Paddle.MouseY = e.getY();
 	}
 	protected static int row = 0;
 
