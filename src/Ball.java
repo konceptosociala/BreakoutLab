@@ -35,7 +35,10 @@ public class Ball extends GOval {
 		handleCollision(program.getElementAt(x + d, y + d));
 		handleCollision(program.getElementAt(x, y));
 		handleCollision(program.getElementAt(x + d, y));
-		
+		handleCollision(program.getElementAt(x, y + d/2));
+		handleCollision(program.getElementAt(x + d, y + d/2));
+		handleCollision(program.getElementAt(x + d/2, y));
+		handleCollision(program.getElementAt(x + d/2, y + d));
 		setLocation(x + vx, y + vy);
 	}
 	
