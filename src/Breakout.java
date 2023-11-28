@@ -33,10 +33,10 @@ public class Breakout extends GraphicsProgram {
 	public static final int PADDLE_Y_OFFSET = 30;
 
 /** Number of bricks per row */
-	public static final int NBRICKS_PER_ROW = 10;
+	public static final int NBRICKS_PER_ROW = 4;
 
 /** Number of rows of bricks */
-	public static final int NBRICK_ROWS = 10;
+	public static final int NBRICK_ROWS = 4;
 
 /** Separation between bricks */
 	public static final int BRICK_SEP = 4;
@@ -56,6 +56,7 @@ public class Breakout extends GraphicsProgram {
 
 /** Number of turns */
 	public static final int NTURNS = 3;
+
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void init() {
@@ -70,7 +71,6 @@ public class Breakout extends GraphicsProgram {
 			.addSystem(new ExitSystem())
 			.addSystem(new GameOverSystem())
 			.addSystem(new Level1System())
-			
 			.addSystem(new YouWinSystem())
 			.run();
 	}
@@ -88,7 +88,7 @@ public class Breakout extends GraphicsProgram {
 	public void mouseMoved(MouseEvent e)
 	{
 		Paddle.MouseX = e.getX();
-		Debug.print("MouseX: " + Paddle.MouseX);
+		//Debug.print("MouseX: " + Paddle.MouseX);
 		Paddle.MouseY = e.getY();
 	}
 	

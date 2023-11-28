@@ -1,4 +1,4 @@
-public class Level1System extends System 
+public class Level2System extends System
 {
 	private boolean setup = false;
 	
@@ -40,7 +40,7 @@ public class Level1System extends System
 						Breakout.BRICK_Y_OFFSET+i*(Breakout.BRICK_HEIGHT+Breakout.BRICK_SEP), 
 						Breakout.BRICK_WIDTH, 
 						Breakout.BRICK_HEIGHT,
-							1
+							2
 					);
 
 					program.add(brick);
@@ -53,6 +53,5 @@ public class Level1System extends System
 		paddle.move();
 		ball.move(program);
 		
-		program.pause(2);
 	}
 }

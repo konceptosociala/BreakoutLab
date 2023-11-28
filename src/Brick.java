@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class Brick extends GRect {
 	private static int brickCounter = 0;
-	
-	public Brick(double x, double y, double width, double height) {
+	public int brickLives;
+	public Brick(double x, double y, double width, double height,int brickLives) {
 		super(x, y, width, height);
 
 		if (Breakout.row <= 2) {
@@ -19,24 +19,27 @@ public class Brick extends GRect {
 		} else if (Breakout.row <= 10) {
 			super.setColor(Color.CYAN);
 		}
-		
+		this.brickLives=brickLives;
 		super.setFilled(true);
         brickCounter++;
 	}
-	
-	public void destroy(){
+
+	public void destroy(Breakout program){
 		setVisible(false);
 		brickCounter--;
-		
+		program.remove(this);
 		if(brickCounter <= 0) {
-//			if (Game.getState().equals(GameState.Level1))
-//				Game.setState(GameState.Level2);
-//			else if (Game.getState().equals(GameState.Level2))
-//				Game.setState(GameState.Level3);
-//			else
-//				Game.setState(GameState.YouWin);
-			
-			Game.setState(GameState.YouWin);
+			Debug.print("Game.getState()");
+			if (Game.getState().equals(GameState.Level1)) {
+
+				Game.setState(GameState.Level2);
+				Debug.print("Game.getState()");
+			}
+			else if (Game.getState().equals(GameState.Level2))
+				Game.setState(GameState.Level3);
+			else
+				Game.setState(GameState.YouWin);
+
 		}
 	}
 }
