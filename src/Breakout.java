@@ -88,7 +88,6 @@ public class Breakout extends GraphicsProgram {
 	public void mouseMoved(MouseEvent e)
 	{
 		Paddle.MouseX = e.getX();
-		//Debug.print("MouseX: " + Paddle.MouseX);
 		Paddle.MouseY = e.getY();
 	}
 	

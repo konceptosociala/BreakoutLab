@@ -6,6 +6,23 @@ import acm.graphics.GOval;
 public class Ball extends GOval {
 	private double vx , vy;
 	int counter=0;
+
+	public double getVx() {
+		return vx;
+	}
+
+	public double getVy() {
+		return vy;
+	}
+
+	public void setVy(double vy) {
+		this.vy = vy;
+	}
+
+	public void setVx(double vx) {
+		this.vx = vx;
+	}
+
 	public Ball(double x, double y, double width, double height) {
 		super(x, y, width, height);
 		setFilled(true);
@@ -25,12 +42,13 @@ public class Ball extends GOval {
 		double y = getY();
 		double d = Breakout.BALL_RADIUS * 2;
 		
-		if (x >= Game.getWidth() || x <= 0)
+		if (x >= Game.getWidth()-d || x <= 0)
 			vx = -vx;
 		
 		if (y >= Game.getHeight() || y <= 0)
 			vy = -vy;
-		handleCollision(program);
+		//handleCollision(program);
+
 		setLocation(x + vx, y + vy);
 	}
 	
@@ -97,6 +115,11 @@ public class Ball extends GOval {
 	        Brick brick = (Brick) obj;
 	        if (brick.isVisible()&&brick.brickLives==1) {
 	            brick.destroy(program);
+				Debug.print(""+brick.getBrickBost());
+				if(brick.getBrickBost()%2==0)
+				{
+					//boost=new Boost(this.getX(),this.getY(),this.getWidth(),this.getHeight());
+				}
 				brick.brickLives--;
 	            vx = -vx;
 	            vy = -vy;

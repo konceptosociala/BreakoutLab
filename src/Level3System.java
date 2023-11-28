@@ -3,8 +3,8 @@ public class Level3System extends System
 	private boolean setup = false;
 	
 	private Paddle paddle = new Paddle(
-		100,
-		100, 
+		0,
+		0,
 		Breakout.PADDLE_WIDTH, 
 		Breakout.PADDLE_HEIGHT
 	);

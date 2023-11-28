@@ -5,6 +5,7 @@ import java.awt.*;
 public class Brick extends GRect {
 	private static int brickCounter = 0;
 	public int brickLives;
+	private double brickBost;
 	public Brick(double x, double y, double width, double height,int brickLives) {
 		super(x, y, width, height);
 
@@ -22,11 +23,13 @@ public class Brick extends GRect {
 		this.brickLives=brickLives;
 		super.setFilled(true);
         brickCounter++;
+		brickBost = Game.rng.nextInt(0, 10);
 	}
 
 	public void destroy(Breakout program){
 		setVisible(false);
 		brickCounter--;
+
 		program.remove(this);
 		if(brickCounter <= 0) {
 			Debug.print("Game.getState()");
@@ -41,5 +44,9 @@ public class Brick extends GRect {
 				Game.setState(GameState.YouWin);
 
 		}
+	}
+
+	public double getBrickBost() {
+		return brickBost;
 	}
 }
