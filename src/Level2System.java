@@ -1,24 +1,14 @@
-public class Level2System extends System
-{
+import acm.graphics.GLabel;
+
+public class Level2System extends LevelSystem
+{	
 	private boolean setup = false;
-	
-	private Paddle paddle = new Paddle(
-		0,
-		0,
-		Breakout.PADDLE_WIDTH, 
-		Breakout.PADDLE_HEIGHT
-	);
-	
-	private Ball ball = new Ball(
-		Game.getWidth()/2 - Breakout.BALL_RADIUS, 
-		Game.getHeight() - 100, 
-		Breakout.BALL_RADIUS * 2, 
-		Breakout.BALL_RADIUS * 2
-	);
+	private GLabel title = new GLabel("Level 1", 5, Game.getHeight() - 20);
+	private GLabel brickCount;
 	
 	public void execute(Breakout program) 
 	{
-		if (!Game.getState().equals(GameState.Level1)) {
+		if (!Game.getState().equals(GameState.Level2)) {
 			if (setup) {
 				setup = false;
 			}
@@ -28,11 +18,26 @@ public class Level2System extends System
 		
 		if (!setup) {
 			program.removeAll();
+			
+			Brick.clearCounter();
+			brickRow = 0;
+			health = new Health(3);
+			paddle = new Paddle(0, 0, Breakout.PADDLE_WIDTH * 0.8, Breakout.PADDLE_HEIGHT * 0.8);
+			ball = new Ball(
+				Game.getWidth()/2 - Breakout.BALL_RADIUS, 
+				Game.getHeight() - 150, 
+				Breakout.BALL_RADIUS * 2, 
+				Breakout.BALL_RADIUS * 2,
+				1.5
+			);
+			
 			program.add(paddle);
 			program.add(ball);
+			program.add(health);
+			program.add(title);
 			
 			for(int i = 0; i < Breakout.NBRICK_ROWS; i++) {
-				Breakout.row++;
+				brickRow++;
 				for (int j = 0; j < Breakout.NBRICKS_PER_ROW; j++) {
 
 					Brick brick = new Brick(
@@ -40,18 +45,35 @@ public class Level2System extends System
 						Breakout.BRICK_Y_OFFSET+i*(Breakout.BRICK_HEIGHT+Breakout.BRICK_SEP), 
 						Breakout.BRICK_WIDTH, 
 						Breakout.BRICK_HEIGHT,
-							2
+						1, brickRow
 					);
 
 					program.add(brick);
 				}
 			}
 			
+			brickCount = new GLabel("Bricks left: " + Brick.bricksLeft(), 5, Game.getHeight() - 5);
+			program.add(brickCount);
+			
 			setup = true;
 		}
 		
 		paddle.move();
-		ball.move(program);
+		handleCollisionBonus(program);
+		handleCollision(program);
 		
+		if (boost != null)
+		{
+			boost.move(0, 0.2);
+		}
+		
+		ball.move(program, health);
+		
+		brickCount.setLabel("Bricks left: " + Brick.bricksLeft());
+		
+		if (health.isDead())
+			Game.setState(GameState.GameOver);
+
+		program.pause(2);
 	}
 }

@@ -6,18 +6,19 @@ public class Brick extends GRect {
 	private static int brickCounter = 0;
 	public int brickLives;
 	private double brickBost;
-	public Brick(double x, double y, double width, double height,int brickLives) {
+	
+	public Brick(double x, double y, double width, double height, int brickLives, int brickRow) {
 		super(x, y, width, height);
 
-		if (Breakout.row <= 2) {
+		if (brickRow <= 2) {
 			super.setColor(Color.RED);
-		} else if (Breakout.row <= 4) {
+		} else if (brickRow <= 4) {
 			super.setColor(Color.ORANGE);
-		} else if (Breakout.row <= 6) {
+		} else if (brickRow <= 6) {
 			super.setColor(Color.YELLOW);
-		} else if (Breakout.row <= 8) {
+		} else if (brickRow <= 8) {
 			super.setColor(Color.GREEN);
-		} else if (Breakout.row <= 10) {
+		} else if (brickRow <= 10) {
 			super.setColor(Color.CYAN);
 		}
 		this.brickLives=brickLives;
@@ -33,17 +34,22 @@ public class Brick extends GRect {
 		program.remove(this);
 		if(brickCounter <= 0) {
 			Debug.print("Game.getState()");
-			if (Game.getState().equals(GameState.Level1)) {
-
+			if (Game.getState().equals(GameState.Level1))
 				Game.setState(GameState.Level2);
-				Debug.print("Game.getState()");
-			}
 			else if (Game.getState().equals(GameState.Level2))
 				Game.setState(GameState.Level3);
 			else
 				Game.setState(GameState.YouWin);
 
 		}
+	}
+	
+	public static void clearCounter() {
+		brickCounter = 0;
+	}
+	
+	public static int bricksLeft() {
+		return brickCounter;
 	}
 
 	public double getBrickBost() {

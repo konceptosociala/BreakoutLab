@@ -16,7 +16,7 @@ public class MainMenuSystem extends System
 			program.removeAll();
 			
 			program.add(new Heading("Breakout ACM"));
-			program.add(new Button("Play game", 200, GameState.Level1));
+			program.add(new Button("Play game", 200, GameState.SelectLevel));
 			program.add(new Button("Quit", 300, GameState.Exit));
 						
 			setup = true;

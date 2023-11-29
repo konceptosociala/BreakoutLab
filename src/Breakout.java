@@ -68,9 +68,12 @@ public class Breakout extends GraphicsProgram {
 	{
 		new Game(new WindowDescriptor("Breakout", APPLICATION_WIDTH, APPLICATION_HEIGHT, this))
 			.addSystem(new MainMenuSystem())
+			.addSystem(new SelectLevelSystem())
 			.addSystem(new ExitSystem())
 			.addSystem(new GameOverSystem())
 			.addSystem(new Level1System())
+			.addSystem(new Level2System())
+			.addSystem(new Level3System())
 			.addSystem(new YouWinSystem())
 			.run();
 	}
@@ -90,6 +93,4 @@ public class Breakout extends GraphicsProgram {
 		Paddle.MouseX = e.getX();
 		Paddle.MouseY = e.getY();
 	}
-	
-	protected static int row = 0;
 }
