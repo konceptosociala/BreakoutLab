@@ -13,6 +13,7 @@ public class Button extends GLabel {
 	}
 	
 	public void onClick(MouseEvent e) {
+		Breakout.playMusic("src\\music\\buttonPressed.wav");
 		Game.setState(newState);
 	}
 }

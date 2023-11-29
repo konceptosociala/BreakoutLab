@@ -28,6 +28,7 @@ public class Brick extends GRect {
 	}
 
 	public void destroy(Breakout program){
+		Breakout.playMusic("src\\music\\brickHitSound.wav");
 		setVisible(false);
 		brickCounter--;
 
