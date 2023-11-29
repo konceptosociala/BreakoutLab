@@ -66,6 +66,7 @@ public class Breakout extends GraphicsProgram {
 	
 	public void run() 
 	{
+		playMusic("src\\gameMusic.wav");
 		new Game(new WindowDescriptor("Breakout", APPLICATION_WIDTH, APPLICATION_HEIGHT, this))
 			.addSystem(new MainMenuSystem())
 			.addSystem(new SelectLevelSystem())
@@ -92,5 +93,19 @@ public class Breakout extends GraphicsProgram {
 	{
 		Paddle.MouseX = e.getX();
 		Paddle.MouseY = e.getY();
+	}
+	public static void playMusic(String filepath) {
+		try {
+			File audioFile = new File(filepath);
+
+			AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioStream);
+
+			clip.start();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			e.printStackTrace();
+		}
 	}
 }
