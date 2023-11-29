@@ -24,7 +24,7 @@ public class Brick extends GRect {
 		this.brickLives=brickLives;
 		super.setFilled(true);
         brickCounter++;
-		brickBost = Game.rng.nextInt(0, 10);
+		brickBost = Game.rng.nextInt(0, 12);
 	}
 
 	public void destroy(Breakout program){

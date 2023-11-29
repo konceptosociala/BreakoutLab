@@ -22,13 +22,13 @@ public class Level2System extends LevelSystem
 			Brick.clearCounter();
 			brickRow = 0;
 			health = new Health(3);
-			paddle = new Paddle(0, 0, Breakout.PADDLE_WIDTH * 0.8, Breakout.PADDLE_HEIGHT * 0.8);
+			paddle = new Paddle(0, 0, Breakout.PADDLE_WIDTH * 0.85, Breakout.PADDLE_HEIGHT * 0.85);
 			ball = new Ball(
 				Game.getWidth()/2 - Breakout.BALL_RADIUS, 
 				Game.getHeight() - 150, 
 				Breakout.BALL_RADIUS * 2, 
 				Breakout.BALL_RADIUS * 2,
-				1.5
+				1.25
 			);
 			
 			program.add(paddle);

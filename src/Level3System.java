@@ -22,13 +22,13 @@ public class Level3System extends LevelSystem
 			Brick.clearCounter();
 			brickRow = 0;
 			health = new Health(2);
-			paddle = new Paddle(0, 0, Breakout.PADDLE_WIDTH * 0.5, Breakout.PADDLE_HEIGHT * 0.5);
+			paddle = new Paddle(0, 0, Breakout.PADDLE_WIDTH * 0.6, Breakout.PADDLE_HEIGHT * 0.6);
 			ball = new Ball(
 				Game.getWidth()/2 - Breakout.BALL_RADIUS, 
 				Game.getHeight() - 150, 
 				Breakout.BALL_RADIUS * 2, 
 				Breakout.BALL_RADIUS * 2,
-				2
+				1.5
 			);
 			
 			program.add(paddle);
@@ -45,7 +45,7 @@ public class Level3System extends LevelSystem
 						Breakout.BRICK_Y_OFFSET+i*(Breakout.BRICK_HEIGHT+Breakout.BRICK_SEP), 
 						Breakout.BRICK_WIDTH, 
 						Breakout.BRICK_HEIGHT,
-						1, brickRow
+						2, brickRow
 					);
 
 					program.add(brick);

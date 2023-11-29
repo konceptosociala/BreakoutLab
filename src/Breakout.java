@@ -11,9 +11,12 @@ import acm.graphics.*;
 import acm.program.*;
 import acm.util.*;
 
+import javax.sound.sampled.*;
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Breakout extends GraphicsProgram {
 	private static final long serialVersionUID = -6216973682616055961L;
@@ -26,8 +29,8 @@ public class Breakout extends GraphicsProgram {
 	public static final int HEIGHT = APPLICATION_HEIGHT;
 
 /** Dimensions of the paddle */
-	public static final int PADDLE_WIDTH = 60;
-	public static final int PADDLE_HEIGHT = 10;
+	public static final int PADDLE_WIDTH = 70;
+	public static final int PADDLE_HEIGHT = 13;
 
 /** Offset of the paddle up from the bottom */
 	public static final int PADDLE_Y_OFFSET = 30;

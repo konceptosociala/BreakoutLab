@@ -41,15 +41,33 @@ public class LevelSystem extends System
 				obj = program.getElementAt(bx4, by4);
 			}
 			if (obj instanceof Paddle) {
-				boolean rand = Game.rng.nextBoolean();
-				paddle.scale(rand ? 1.2: 0.85);
-				if(rand) {
-					paddle.setWidth(paddle.getWidth() * 1.2);
-					paddle.setHeight(paddle.getHeight() * 1.2);
-				} else {
-					paddle.setWidth(paddle.getWidth() * 0.85);
-					paddle.setHeight(paddle.getHeight() * 0.85);
+				int whatBonus = Game.rng.nextInt(0,3);
+				Debug.print(whatBonus);
+				boolean rand;
+				switch ( whatBonus)
+				{
+					case 0:
+						rand = Game.rng.nextBoolean();
+						paddle.scale(rand ? 1.25: 0.85);
+						if(rand) {
+							paddle.setWidth(paddle.getWidth() * 1.25);
+							paddle.setHeight(paddle.getHeight() * 1.25);
+						} else {
+							paddle.setWidth(paddle.getWidth() * 0.85);
+							paddle.setHeight(paddle.getHeight() * 0.85);
+						}
+						break;
+					case 1:
+						health.increase(1);
+						break;
+					case 2:
+						ball.setSpeedBonus(ball.getVx(),ball.getVy());
+						break;
+					case 3:
+						ball.setSpeedBonus(ball.getVx(),ball.getVy());
+						break;
 				}
+
 
 				program.remove(boost);
 				boost = null;
@@ -110,8 +128,7 @@ public class LevelSystem extends System
 			Brick brick = (Brick) obj;
 			if (brick.isVisible() && brick.brickLives == 1) {
 				brick.destroy(program);
-				Debug.print("" + brick.getBrickBost());
-				if(brick.getBrickBost() % 5 == 0 && boost == null)
+				if(brick.getBrickBost() % 4 == 0 && boost == null)
 				{
 					boost = new Boost(brick.getX(), brick.getY(), 30, 30);
 					program.add(boost);
