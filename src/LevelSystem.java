@@ -130,7 +130,7 @@ public class LevelSystem extends System
 
 		if (obj instanceof Paddle) {
 			Breakout.playMusic("src\\music\\hitTheWallSound.wav");
-			ball.setVy(-ball.getVy());
+			ball.setVy(-Math.abs(ball.getVy()));
 		} else if (obj instanceof Brick) {
 			Brick brick = (Brick) obj;
 			if (brick.isVisible() && brick.brickLives == 1) {
