@@ -127,6 +127,11 @@ public class LevelSystem extends System
 		} else if (obj instanceof Brick) {
 			Brick brick = (Brick) obj;
 			if (brick.isVisible() && brick.brickLives == 1) {
+<<<<<<< Updated upstream
+=======
+				if(points!=null)
+					points.incrementPoints();
+>>>>>>> Stashed changes
 				brick.destroy(program);
 				if(brick.getBrickBost() % 4 == 0 && boost == null)
 				{

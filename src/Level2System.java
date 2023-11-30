@@ -3,7 +3,7 @@ import acm.graphics.GLabel;
 public class Level2System extends LevelSystem
 {	
 	private boolean setup = false;
-	private GLabel title = new GLabel("Level 1", 5, Game.getHeight() - 20);
+	private GLabel title = new GLabel("Level 2", 5, Game.getHeight() - 20);
 	private GLabel brickCount;
 	
 	public void execute(Breakout program) 
@@ -18,9 +18,15 @@ public class Level2System extends LevelSystem
 		
 		if (!setup) {
 			program.removeAll();
-			
+
 			Brick.clearCounter();
 			brickRow = 0;
+<<<<<<< Updated upstream
+=======
+
+			points=new Points(points.getPoints()+"");
+
+>>>>>>> Stashed changes
 			health = new Health(3);
 			paddle = new Paddle(0, 0, Breakout.PADDLE_WIDTH * 0.85, Breakout.PADDLE_HEIGHT * 0.85);
 			ball = new Ball(
@@ -35,7 +41,8 @@ public class Level2System extends LevelSystem
 			program.add(ball);
 			program.add(health);
 			program.add(title);
-			
+			program.add(points);
+
 			for(int i = 0; i < Breakout.NBRICK_ROWS; i++) {
 				brickRow++;
 				for (int j = 0; j < Breakout.NBRICKS_PER_ROW; j++) {
