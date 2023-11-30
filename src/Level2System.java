@@ -21,6 +21,7 @@ public class Level2System extends LevelSystem
 			
 			Brick.clearCounter();
 			brickRow = 0;
+			points=new Points(points.getPoints()+"");
 			health = new Health(3);
 			paddle = new Paddle(0, 0, Breakout.PADDLE_WIDTH * 0.85, Breakout.PADDLE_HEIGHT * 0.85);
 			ball = new Ball(
