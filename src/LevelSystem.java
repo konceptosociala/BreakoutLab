@@ -50,20 +50,25 @@ public class LevelSystem extends System
 						rand = Game.rng.nextBoolean();
 						paddle.scale(rand ? 1.25: 0.85);
 						if(rand) {
+							Breakout.playMusic("src\\music\\bonusPickedUp.wav");
 							paddle.setWidth(paddle.getWidth() * 1.25);
 							paddle.setHeight(paddle.getHeight() * 1.25);
 						} else {
+							Breakout.playMusic("src\\music\\debuffPickedUp.wav");
 							paddle.setWidth(paddle.getWidth() * 0.85);
 							paddle.setHeight(paddle.getHeight() * 0.85);
 						}
 						break;
 					case 1:
+						Breakout.playMusic("src\\music\\bonusPickedUp.wav");
 						health.increase(1);
 						break;
 					case 2:
+						Breakout.playMusic("src\\music\\bonusPickedUp.wav");
 						ball.setSpeedBonus(ball.getVx(),ball.getVy());
 						break;
 					case 3:
+						Breakout.playMusic("src\\music\\bonusPickedUp.wav");
 						ball.setSpeedBonus(ball.getVx(),ball.getVy());
 						break;
 				}
@@ -123,27 +128,28 @@ public class LevelSystem extends System
 		}
 
 		if (obj instanceof Paddle) {
+			Breakout.playMusic("src\\music\\hitTheWallSound.wav");
 			ball.setVy(-ball.getVy());
 		} else if (obj instanceof Brick) {
 			Brick brick = (Brick) obj;
 			if (brick.isVisible() && brick.brickLives == 1) {
-<<<<<<< Updated upstream
+				<<<<<<< Updated upstream
 =======
 				if(points!=null)
 					points.incrementPoints();
 >>>>>>> Stashed changes
 				brick.destroy(program);
+						brick.destroy(program);
 				if(brick.getBrickBost() % 4 == 0 && boost == null)
 				{
 					boost = new Boost(brick.getX(), brick.getY(), 30, 30);
 					program.add(boost);
 				}
 				brick.brickLives--;
-				ball.setVx(-ball.getVx());
 				ball.setVy(-ball.getVy());
 			} else {
+				Breakout.playMusic("src\\music\\hitTheWallSound.wav");
 				brick.brickLives--;
-				ball.setVx(-ball.getVx());
 				ball.setVy(-ball.getVy());
 			}
 		}
