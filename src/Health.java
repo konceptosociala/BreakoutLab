@@ -29,7 +29,6 @@ public class Health extends GLabel
 		if (this.points > 0) 
 		{
 			points -= healthPoints;
-			Breakout.playMusic("src\\music\\negative_beeps.wav");
 		}
 		
 		this.label = "Health: ";

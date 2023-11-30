@@ -50,14 +50,12 @@ public class Ball extends GOval {
 			timer+=0.0001;
 		}
 
-		if (x <= 0 || x >= Game.getWidth() - d) {
+		if (x <= 0 || x > Game.getWidth() - d-d/2)
 			vx = -vx;
-			Breakout.playMusic("src\\music\\hitTheWallSound.wav");
-		}
-		if (y <= 0) {
+		
+		if (y <= 0)
 			vy = -vy;
-			Breakout.playMusic("src\\music\\hitTheWallSound.wav");
-		}
+		
 		if (y >= Game.getHeight()- d) {
 			vy = -vy;
 			health.decrease(1);

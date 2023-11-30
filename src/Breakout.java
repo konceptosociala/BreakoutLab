@@ -69,7 +69,7 @@ public class Breakout extends GraphicsProgram {
 	
 	public void run() 
 	{
-		playMusic("src\\music\\gameMusic.wav");
+		playMusic("src\\gameMusic.wav");
 		new Game(new WindowDescriptor("Breakout", APPLICATION_WIDTH, APPLICATION_HEIGHT, this))
 			.addSystem(new MainMenuSystem())
 			.addSystem(new SelectLevelSystem())
