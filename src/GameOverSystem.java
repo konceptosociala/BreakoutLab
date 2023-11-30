@@ -14,7 +14,7 @@ public class GameOverSystem extends System
 		
 		if (!setup) {
 			program.removeAll();
-			
+			Breakout.playMusic("src\\music\\loss.wav");
 			program.add(new Heading("Game is over"));
 			program.add(new Button("Go to main menu", 300, GameState.MainMenu));
 						

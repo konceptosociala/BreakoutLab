@@ -14,7 +14,7 @@ public class YouWinSystem extends System
 		
 		if (!setup) {
 			program.removeAll();
-			
+			Breakout.playMusic("src\\music\\victory.wav");
 			program.add(new Heading("You win!"));
 			program.add(new Button("Go to main menu", 300, GameState.MainMenu));
 						
