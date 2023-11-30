@@ -31,7 +31,7 @@ public class Brick extends GRect {
 		Breakout.playMusic("src\\music\\brickHitSound.wav");
 		setVisible(false);
 		brickCounter--;
-
+		Debug.print(brickCounter);
 		program.remove(this);
 		if(brickCounter <= 0) {
 			Debug.print("Game.getState()");

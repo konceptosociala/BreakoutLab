@@ -4,6 +4,7 @@ public class LevelSystem extends System
 {
 	public Boost boost;
 	protected Health health;
+	protected Points points;
 	protected Paddle paddle;
 	protected Ball ball;
 	protected int brickRow = 0;
@@ -133,12 +134,9 @@ public class LevelSystem extends System
 		} else if (obj instanceof Brick) {
 			Brick brick = (Brick) obj;
 			if (brick.isVisible() && brick.brickLives == 1) {
-				<<<<<<< Updated upstream
-=======
+
 				if(points!=null)
 					points.incrementPoints();
->>>>>>> Stashed changes
-				brick.destroy(program);
 						brick.destroy(program);
 				if(brick.getBrickBost() % 4 == 0 && boost == null)
 				{

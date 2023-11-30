@@ -9,8 +9,7 @@ public class Points extends GLabel {
         super(str,Breakout.APPLICATION_WIDTH-100,20);
         this.setFont("Monospaced-24");
         this.setColor(Color.BLACK);
-
-            label=""+points;
+        label=""+points;
         this.setLabel(label);
     }
     public void clear() {
