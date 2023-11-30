@@ -5,7 +5,6 @@ public class LevelSystem extends System
 	public Boost boost;
 	protected Health health;
 	protected Paddle paddle;
-	protected Points points;
 	protected Ball ball;
 	protected int brickRow = 0;
 	
@@ -134,9 +133,7 @@ public class LevelSystem extends System
 		} else if (obj instanceof Brick) {
 			Brick brick = (Brick) obj;
 			if (brick.isVisible() && brick.brickLives == 1) {
-				points.incrementPoints();
 				brick.destroy(program);
-				Debug.print(""+brick.getBrickBost());
 				if(brick.getBrickBost() % 4 == 0 && boost == null)
 				{
 					boost = new Boost(brick.getX(), brick.getY(), 30, 30);

@@ -18,11 +18,9 @@ public class Level1System extends LevelSystem
 		
 		if (!setup) {
 			program.removeAll();
-			if(points!=null)
-				points.clear();
+			
 			Brick.clearCounter();
 			brickRow = 0;
-			points=new Points("0");
 			health = new Health(5);
 			paddle = new Paddle(0, 0, Breakout.PADDLE_WIDTH, Breakout.PADDLE_HEIGHT);
 			ball = new Ball(
@@ -37,8 +35,7 @@ public class Level1System extends LevelSystem
 			program.add(ball);
 			program.add(health);
 			program.add(title);
-			program.add(points);
-
+			
 			for(int i = 0; i < Breakout.NBRICK_ROWS; i++) {
 				brickRow++;
 				for (int j = 0; j < Breakout.NBRICKS_PER_ROW; j++) {
