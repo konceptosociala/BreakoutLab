@@ -59,7 +59,9 @@ public class Ball extends GOval {
 			Breakout.playMusic("src\\music\\hitTheWallSound.wav");
 		}
 		if (y >= Game.getHeight()- d) {
-			vy = -vy;
+			x= (double) Game.getWidth() /2 - Breakout.BALL_RADIUS;
+			y= (double) Game.getHeight() /2-70;
+			setLocation(x,y);
 			health.decrease(1);
 		}
 		if(timer!=0)
