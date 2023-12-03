@@ -1,4 +1,6 @@
-public class YouWinSystem extends System 
+import acm.graphics.GImage;
+
+public class YouWinSystem extends System
 {
 	private boolean setup = false;
 	
@@ -14,6 +16,9 @@ public class YouWinSystem extends System
 		
 		if (!setup) {
 			program.removeAll();
+			GImage win = new GImage("src\\victory.gif");
+			win.setSize(Breakout.APPLICATION_WIDTH,Breakout.APPLICATION_HEIGHT);
+			program.add(win);
 			Breakout.playMusic("src\\music\\victory.wav");
 			program.add(new Heading("You win!"));
 			program.add(new Button("Go to main menu", 300, GameState.MainMenu));

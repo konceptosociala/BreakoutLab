@@ -1,5 +1,6 @@
+import acm.graphics.GImage;
 
-public class SelectLevelSystem extends System 
+public class SelectLevelSystem extends System
 {
 	private boolean setup = false;
 	
@@ -15,7 +16,9 @@ public class SelectLevelSystem extends System
 		
 		if (!setup) {
 			program.removeAll();
-			
+			GImage Background = new GImage("src\\bg.jpg");
+			Background.setSize(Breakout.APPLICATION_WIDTH,Breakout.APPLICATION_HEIGHT);
+			program.add(Background);
 			program.add(new Heading("Select level"));
 			program.add(new Button("Level 1", 300, GameState.Level1));
 			program.add(new Button("Level 2", 400, GameState.Level2));
