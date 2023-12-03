@@ -1,7 +1,13 @@
 public class GameOverSystem extends System 
 {
 	private boolean setup = false;
-	
+	/**
+	 * Executes the "GameOver" system, handling the setup of the game over screen.
+	 * If the current GameState is not "GameOver", the method returns without performing any action.
+	 * Otherwise, it removes all elements from the program, plays a loss sound, and sets up the game over screen.
+	 *
+	 * @param program The Breakout program instance.
+	 */
 	public void execute(Breakout program) 
 	{
 		if (!Game.getState().equals(GameState.GameOver)) {

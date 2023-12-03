@@ -9,9 +9,20 @@ public class LevelSystem extends System
 	protected Paddle paddle;
 	protected Ball ball;
 	protected int brickRow = 0;
-	
+	/**
+	 * Executes the logic for the level system. Subclasses should override this method
+	 * to implement level-specific behavior.
+	 *
+	 * @param program The Breakout program instance.
+	 */
 	public void execute(Breakout program) {}
-	
+	/**
+	 * Handles collision detection with bonus items. If a collision is detected with the paddle,
+	 * applies a random bonus effect, such as paddle scaling, health increase, or ball speed bonus.
+	 * Removes the bonus item after the effect is applied.
+	 *
+	 * @param program The Breakout program instance.
+	 */
 	protected void handleCollisionBonus(Breakout program) 
 	{
 		if(boost != null)
@@ -44,7 +55,6 @@ public class LevelSystem extends System
 			}
 			if (obj instanceof Paddle) {
 				int whatBonus = Game.rng.nextInt(0,3);
-				Debug.print(whatBonus);
 				boolean rand;
 				switch ( whatBonus)
 				{
@@ -81,7 +91,13 @@ public class LevelSystem extends System
 			}
 		}
 	}
-	
+	/**
+	 * Handles general collision detection, including collisions with the paddle and bricks.
+	 * Adjusts the game state based on collisions, such as incrementing points, destroying bricks,
+	 * and handling ball reflection off walls.
+	 *
+	 * @param program The Breakout program instance.
+	 */
 	protected void handleCollision(Breakout program) {
 		double r = Breakout.BALL_RADIUS ;
 

@@ -5,7 +5,14 @@ public class Level3System extends LevelSystem
 	private boolean setup = false;
 	private GLabel title = new GLabel("Level 3", 5, Game.getHeight() - 40);
 	private GLabel brickCount;
-	
+	/**
+	 * Executes the logic for the third level of the Breakout game.
+	 * Sets up the initial game state, including the paddle, ball, bricks, health, and points.
+	 * Handles user input, collisions, and updates game elements. Introduces increased difficulty
+	 * with a smaller paddle size, fewer health points, and faster ball speed.
+	 *
+	 * @param program The Breakout program instance.
+	 */
 	public void execute(Breakout program) 
 	{
 		if (!Game.getState().equals(GameState.Level3)) {
