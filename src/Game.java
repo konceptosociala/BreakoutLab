@@ -16,7 +16,8 @@ public class Game
 	{
 		program = descriptor.program;
 		program.setName(descriptor.name);
-		program.setSize(descriptor.width, descriptor.height);
+		Debug.print(descriptor.height);
+		program.setSize(descriptor.width+10, 50+descriptor.height);
 		Game.state = GameState.MainMenu;
 		Game.window = descriptor;
 	}

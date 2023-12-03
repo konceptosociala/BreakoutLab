@@ -3,7 +3,7 @@ import acm.graphics.GLabel;
 public class Level2System extends LevelSystem
 {	
 	private boolean setup = false;
-	private GLabel title = new GLabel("Level 2", 5, Game.getHeight() - 20);
+	private GLabel title = new GLabel("Level 2", 5, Game.getHeight() - 40);
 	private GLabel brickCount;
 	
 	public void execute(Breakout program) 
@@ -56,7 +56,7 @@ public class Level2System extends LevelSystem
 				}
 			}
 			
-			brickCount = new GLabel("Bricks left: " + Brick.bricksLeft(), 5, Game.getHeight() - 5);
+			brickCount = new GLabel("Bricks left: " + Brick.bricksLeft(), 5, Game.getHeight() - 25);
 			program.add(brickCount);
 			
 			setup = true;

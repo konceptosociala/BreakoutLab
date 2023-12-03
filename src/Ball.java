@@ -51,10 +51,12 @@ public class Ball extends GOval {
 		}
 
 		if (x <= 0 || x >= Game.getWidth() - d-d/2) {
+			LevelSystem.touchedPaddle=false;
 			vx = -vx;
 			Breakout.playMusic("src\\music\\hitTheWallSound.wav");
 		}
 		if (y <= 0) {
+			LevelSystem.touchedPaddle=false;
 			vy = -vy;
 			Breakout.playMusic("src\\music\\hitTheWallSound.wav");
 		}
@@ -63,6 +65,7 @@ public class Ball extends GOval {
 			y= (double) Game.getHeight() /2-70;
 			setLocation(x,y);
 			health.decrease(1);
+			LevelSystem.touchedPaddle=false;
 		}
 		if(timer!=0)
 			setLocation(x + (vx)*timer, y + (vy)*timer);

@@ -2,6 +2,7 @@ import acm.graphics.GObject;
 
 public class LevelSystem extends System 
 {
+	public static boolean touchedPaddle=false;
 	public Boost boost;
 	protected Health health;
 	protected Points points;
@@ -129,9 +130,13 @@ public class LevelSystem extends System
 		}
 
 		if (obj instanceof Paddle) {
-			Breakout.playMusic("src\\music\\hitTheWallSound.wav");
-			ball.setVy(-Math.abs(ball.getVy()));
+			if(touchedPaddle==false) {
+				touchedPaddle = true;
+				Breakout.playMusic("src\\music\\hitTheWallSound.wav");
+				ball.setVy(-Math.abs(ball.getVy()));
+			}
 		} else if (obj instanceof Brick) {
+			touchedPaddle=false;
 			Brick brick = (Brick) obj;
 			if (brick.isVisible() && brick.brickLives == 1) {
 
@@ -150,6 +155,7 @@ public class LevelSystem extends System
 				brick.brickLives--;
 				ball.setVy(-ball.getVy());
 			}
+
 		}
 	}
 }
