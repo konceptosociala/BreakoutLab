@@ -5,7 +5,13 @@ public class Level2System extends LevelSystem
 	private boolean setup = false;
 	private GLabel title = new GLabel("Level 2", 5, Game.getHeight() - 40);
 	private GLabel brickCount;
-	
+	/**
+	 * Executes the logic for the second level of the Breakout game.
+	 * Sets up the initial game state, including the paddle, ball, bricks, health, and points.
+	 * Handles user input, collisions, and updates game elements.
+	 *
+	 * @param program The Breakout program instance.
+	 */
 	public void execute(Breakout program) 
 	{
 		if (!Game.getState().equals(GameState.Level2)) {

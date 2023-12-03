@@ -3,7 +3,13 @@ import acm.graphics.GImage;
 public class SelectLevelSystem extends System
 {
 	private boolean setup = false;
-	
+	/**
+	 * Executes the logic for the level selection system. If the game state is the level selection,
+	 * it sets up the graphical elements, including the heading and buttons for selecting
+	 * different game levels.
+	 *
+	 * @param program The Breakout program instance.
+	 */
 	public void execute(Breakout program) 
 	{
 		if (!Game.getState().equals(GameState.SelectLevel)) {

@@ -3,7 +3,13 @@ import acm.graphics.GImage;
 public class MainMenuSystem extends System
 {
 	private boolean setup = false;
-	
+	/**
+	 * Executes the logic for the main menu system. If the game state is the main menu,
+	 * it sets up the graphical elements, including the heading and buttons for starting
+	 * the game or quitting.
+	 *
+	 * @param program The Breakout program instance.
+	 */
 	public void execute(Breakout program)
 	{		
 		if (!Game.getState().equals(GameState.MainMenu)) {

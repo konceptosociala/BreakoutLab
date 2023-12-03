@@ -66,7 +66,11 @@ public class Breakout extends GraphicsProgram {
 		addMouseListeners();
 		addKeyListeners();
 	}
-	
+
+	/**
+	 * Runs the Breakout program, initiating the game loop.
+	 * It sets up the game systems and runs the game.
+	 */
 	public void run() 
 	{
 		playMusic("src\\music\\gameMusic.wav");
@@ -81,7 +85,11 @@ public class Breakout extends GraphicsProgram {
 			.addSystem(new YouWinSystem())
 			.run();
 	}
-	
+	/**
+	 * Handles the mouseClicked event, checking if a Button was clicked and triggering its onClick method.
+	 *
+	 * @param e The MouseEvent representing the mouse click.
+	 */
 	public void mouseClicked(MouseEvent e)
 	{
 		GPoint p = new GPoint(e.getPoint()); 
@@ -91,12 +99,21 @@ public class Breakout extends GraphicsProgram {
 			((Button) o).onClick(e);
 		}
 	}
-
+	/**
+	 * Handles the mouseMoved event, updating the Paddle's position based on the mouse movement.
+	 *
+	 * @param e The MouseEvent representing the mouse movement.
+	 */
 	public void mouseMoved(MouseEvent e)
 	{
 		Paddle.MouseX = e.getX();
 		Paddle.MouseY = e.getY();
 	}
+	/**
+	 * Plays background music based on the provided file path.
+	 *
+	 * @param filepath The file path of the audio file to be played.
+	 */
 	public static void playMusic(String filepath) {
 		try {
 			File audioFile = new File(filepath);
